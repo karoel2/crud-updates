@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit user</title>
+  </head>
+  <body>
+
+    <button style = "font-family:Robotic;font-size:35px;" type="button"><a href='../../home'>
+      Home
+    </a></button>
+    <button style = "font-family:Robotic;font-size:35px;" type="button"><a href='../../profile'>
+      Back
+    </a></button>
+    <p></p>
+
+    <form method="post" style='position: relative;'>
+      {% csrf_token %}
+        <fieldset style='display: inline-block; vertical-align: middle; margin: 0; padding: 0; border: 0;'>
+          <label style='display: block; font-weight: bold;'>Id</label>
+          <p>{{user_properties.0}}</p>
+          <input type="text" name="id" style='visibility: hidden;'>
+        </fieldset>
+      <fieldset style='display: inline-block; vertical-align: middle; margin: 0; padding: 0; border: 0;'>
+        <label style='display: block; font-weight: bold;'>Name</label>
+        <p>{{user_properties.1}}</p>
+        <input type="text" name="name" required id="id_name">
+      </fieldset>
+
+      <fieldset style='display: inline-block; vertical-align: middle; margin: 0; padding: 0; border: 0;'>
+        <label style='display: block; font-weight: bold;'>Surname</label>
+        <p>{{user_properties.2}}</p>
+        <input type="text" name="surname" required id="surname">
+      </fieldset>
+
+      <fieldset style='display: inline-block; vertical-align: middle; margin: 0; padding: 0; border: 0;'>
+        <label style='display: block; font-weight: bold;'>Date of birth</label>
+        <p>{{user_properties.3}}</p>
+        <input type="date" name="dateOfBirth" required id="dateOfBirth">
+        {{ UserForm.dateOfBirth }}
+
+      </fieldset>
+
+      <fieldset style='display: inline-block; vertical-align: middle; margin: 0; padding: 0; border: 0;'>
+        <label style='display: block; font-weight: bold;'>Login</label>
+        <p>{{user_properties.4}}</p>
+        <input type="text" name="login" required id="login">
+      </fieldset>
+
+      <input type="submit" value="Edit">
+    </form>
+  </body>
+</html>

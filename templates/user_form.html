@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Create</title>
+  <meta charset="utf-8" />
+</head>
+
+<body class="">
+
+  <button style = "font-family:Robotic;font-size:35px;" type="button"><a href='../home'>
+    Home
+  </a></button>
+
+
+    <h2>Create User:</h2>
+        <form action="/form/" method="post">
+          {% csrf_token %}
+
+          <fieldset>
+
+            <label for="id_name">Name: </label> <input type="text" name="name" required id="id_name">
+
+          </fieldset>
+
+          <fieldset>
+
+            <label for="id_surname">Surname: </label> <input type="text" name="surname" required id="surname">
+
+
+          </fieldset>
+
+          <fieldset>
+
+            <label for="id_dateOfBirth">Date of birth: </label> <input type="date" name="dateOfBirth" required id="dateOfBirth">
+                {{ UserForm.dateOfBirth }}
+
+          </fieldset>
+
+          <fieldset>
+
+            <label for="id_login">Login: </label> <input type="text" name="login" required id="login">
+
+
+          </fieldset>
+
+
+
+          <input type="submit" value="Submit">
+        </form>
+
+</body>
+
+</html>
