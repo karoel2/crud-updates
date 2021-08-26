@@ -25,7 +25,7 @@ SECRET_KEY = '+!%*fphhdj+$@=ta5*kl9p1ym21!f50!4^kn*vx_@xw-788(95'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://git.heroku.com/still-ocean-99573.git',]
 
 
 # Application definition
@@ -144,4 +144,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 django_heroku.settings(locals())
-STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
