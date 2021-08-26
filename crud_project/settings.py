@@ -13,6 +13,7 @@ import django_heroku
 
 import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+###BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -53,11 +54,14 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+]
 
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+#STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 
 ROOT_URLCONF = 'crud_project.urls'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
@@ -142,6 +146,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-STATIC_URL = '/static/'
 django_heroku.settings(locals())
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
