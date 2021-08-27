@@ -50,7 +50,7 @@ def user_prolfie_list(request):
     context = {
     'user_properties': list
     }
-    return render(request, 'profile_list.html', context)
+    return render(request, 'students_edit.html', context)
 
 
 from django.shortcuts import get_object_or_404, redirect

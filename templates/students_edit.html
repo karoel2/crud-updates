@@ -63,6 +63,8 @@
     <th>Surname</th>
     <th>Date of birth</th>
     <th>Login</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
   {% for user in user_properties %}
     {% if not user.5 %}
@@ -72,6 +74,12 @@
           {{ prop }}
         </th>
       {% endfor %}
+      <th>
+        <button class="icon_btn"><a  href = '/profile_view/{{user.0}}/'><i class="fas fa-edit fa-2x"></i></a></button>
+      </th>
+      <th>
+        <button class="icon_btn"><a  href = '/profile_delete/{{user.0}}/'><i class="fas fa-trash fa-2x"></i></a></button>
+      </th>
     </tr>
     {% endif %}
   {% endfor %}
