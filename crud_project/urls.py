@@ -16,8 +16,8 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from students import views
-from django.conf import settings
-from django.conf.urls.static import static
+# from django.conf import settings
+# from django.conf.urls.static import static
 
 urlpatterns = [
     url(r'^$', views.home, name='home'),
@@ -30,4 +30,4 @@ urlpatterns = [
     url(r'^profile_delete/(?P<user_id>\d+)/', views.user_prolfie_delete, name='del'),
     url(r'^restart/', views.restart),
 
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
