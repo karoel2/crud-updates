@@ -25,7 +25,26 @@ SECRET_KEY = '+!%*fphhdj+$@=ta5*kl9p1ym21!f50!4^kn*vx_@xw-788(95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+#
+#
+#
+#
+#
+###
+#
+#
+##
+#
+#
+#
+#
+#
 
+###
+##
+##
+
+#
 ALLOWED_HOSTS = ['https://git.heroku.com/still-ocean-99573.git',]
 
 
@@ -62,6 +81,16 @@ MIDDLEWARE_CLASSES = [
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 #STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+
+
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+
 
 ROOT_URLCONF = 'crud_project.urls'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
