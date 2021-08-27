@@ -1,6 +1,7 @@
 body {
   background: rgb(229,229,229);
-    font-size: 16px;
+  font-size: 21px;
+
 }
 .menu{
   display: inline-block;
@@ -9,9 +10,17 @@ body {
 }
 
 
-.btn_txt {
-  font-family:"Times New Roman";
+.form_input{
+  display: inline-block;
+  border: none;
 }
+.user_form{
+  display: inline-block;
+}
+.user_input{
+  font-size: 21px;
+}
+
 .fas{
   color: rgb(87,100,140);
 }
