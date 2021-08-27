@@ -1,1 +1,1 @@
-web: gunicorn students.wsgi
+web: gunicorn crud_project.wsgi
