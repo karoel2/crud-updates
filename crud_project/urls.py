@@ -30,4 +30,6 @@ urlpatterns = [
     url(r'^profile_delete/(?P<user_id>\d+)/', views.user_prolfie_delete, name='del'),
     url(r'^restart/', views.restart),
 
+    url(r'^profile_view/', views.reditect_to_home, name='home'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -110,4 +110,6 @@ def restart(request):
                                )
     return redirect('home')
 
-# Create your views here.
+
+def reditect_to_home(request):
+    return redirect('..')

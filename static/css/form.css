@@ -101,8 +101,9 @@ body {
   margin-top: 75px;
   font-size: 0.9em;
   font-family: sans-serif;
+  padding: 25px;
   min-width: 400px;
-  max-width: 30%;
+  /* max-width: 30%; */
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 
 }
