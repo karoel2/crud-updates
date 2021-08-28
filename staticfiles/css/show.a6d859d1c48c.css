@@ -1,6 +1,7 @@
 body {
   background: 	#e0e7e9;
   font-size: 21px;
+
 }
 .menu {
   float: center;
@@ -21,7 +22,12 @@ body {
   color: #354649;
   background: #a3c6c4;
 }
-
+.fa-edit{
+  background: #a3c6c4;
+}
+.fa-trash{
+  background: #a3c6c4;
+}
 .btn:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 12px rgba(0,0,0,0.19);
 }
@@ -36,6 +42,21 @@ body {
   padding: 0;
   border: none;
 }
+.styled-table {
+    background: #a3c6c4;
+    margin-left: auto;
+    margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 45px 10px;
+    margin-top: 75px;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
 .bounce:hover {
   display: inline-block;
   position: relative;
