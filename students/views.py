@@ -16,15 +16,6 @@ def show(request):
         context = {
         'page_obj': page_obj
         }
-        from datetime import datetime
-
-        now = datetime.now()
-
-        current_time = now.strftime("%H:%M:%S")
-        print("Current Time =", current_time)
-        print(f'number: {page_number}')
-        print(f'next {page_obj.has_next()}')
-        print(f'previous {page_obj.has_previous()}')
     else:
         context = {}
     return render(request, 'show.html', context)
@@ -53,14 +44,24 @@ def user_form(request):
     return render(request, 'user_form.html', context)
 
 
-def user_prolfie_list(request):
-    users = User.objects.all()
-    list = []
-    for it in users:
-        list.append(it.properties())
-    context = {
-    'user_properties': list
-    }
+def user_prolfie_list(request):#editOrDelete
+    # users = User.objects.all()
+    # list = []
+    # for it in users:
+    #     list.append(it.properties())
+    # context = {
+    # 'user_properties': list
+    # }
+    user_list = [user.properties() for user in User.objects.all()]
+    paginator = Paginator(user_list, 25) # Show 25 contacts per page.
+    page_number = request.GET.get('page')
+    if page_number != None:
+        page_obj = paginator.get_page(page_number)
+        context = {
+        'page_obj': page_obj
+        }
+    else:
+        context = {}
     return render(request, 'students_edit.html', context)
 
 

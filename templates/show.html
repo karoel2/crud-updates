@@ -33,7 +33,7 @@
       </button>
     </a>
 
-    <a href='../profile'>
+    <a href='../profile/?page=1'>
       <button class="btn bounce">
         <i class="fas fa-user-edit fa-5x">
         </i>
@@ -55,15 +55,11 @@
   </div>
 </div>
 
-
-
-<div><br><br></div>
-
-
+<div class="menu">
 {% if page_obj.has_previous %}
 <a href="?page=1">
   <button class="btn bounce">
-    <i class="fas fa-angle-double-left fa-5x">
+    <i class="fas fa-angle-double-left fa-3x">
     </i>
     <p class="btn_txt">
     first page
@@ -72,7 +68,7 @@
 </a>
 <a href="?page={{page_obj.previous_page_number}}">
   <button class="btn bounce">
-    <i class="fas fa-angle-left fa-5x">
+    <i class="fas fa-angle-left fa-3x">
     </i>
     <p class="btn_txt">
       previous
@@ -80,28 +76,24 @@
   </button>
 </a>
 {% else %}
-<!-- <a href="?page=1"> -->
   <button class="btn bounce">
-    <i class="unavaliable fas fa-angle-double-left fa-5x">
+    <i class="unavaliable fas fa-angle-double-left fa-3x">
     </i>
     <p class="btn_txt">
       first page
     </p>
   </button>
-<!-- </a>
-<a href="?page=1"> -->
   <button class="btn bounce">
-    <i class="unavaliable fas fa-angle-left fa-5x">
+    <i class="unavaliable fas fa-angle-left fa-3x">
     </i>
     <p class="btn_txt">
       previous
     </p>
   </button>
-<!-- </a> -->
 {% endif %}
 
 <button class="btn bounce">
-  <i class="fas fa-map fa-5x">
+  <i class="fas fa-map fa-3x">
   </i>
   <p class="btn_txt">
     page number: {{ page_obj.number }}
@@ -111,7 +103,7 @@
 {% if page_obj.has_next %}
 <a href="?page={{page_obj.next_page_number}}">
   <button class="btn bounce">
-    <i class="fas fa-angle-right fa-5x">
+    <i class="fas fa-angle-right fa-3x">
     </i>
     <p class="btn_txt">
       next
@@ -120,7 +112,7 @@
 </a>
 <a href="?page={{page_obj.paginator.num_pages}}">
   <button class="btn bounce">
-    <i class="fas fa-angle-double-right fa-5x">
+    <i class="fas fa-angle-double-right fa-3x">
     </i>
     <p class="btn_txt">
       last page
@@ -128,25 +120,22 @@
   </button>
 </a>
 {% else %}
-<!-- <a href="?page="> -->
   <button class="btn bounce">
-    <i class="unavaliable fas fa-angle-right fa-5x">
+    <i class="unavaliable fas fa-angle-right fa-3x">
     </i>
     <p class="btn_txt">
       next
     </p>
   </button>
-<!-- </a>
-<a href="?page=1"> -->
   <button class="btn bounce">
-    <i class="unavaliable fas fa-angle-double-right fa-5x">
+    <i class="unavaliable fas fa-angle-double-right fa-3x">
     </i>
     <p class="btn_txt">
       last page
     </p>
   </button>
-<!-- </a> -->
 {% endif %}
+</div>
 
 <table class="styled-table">
   <tr>
@@ -168,25 +157,6 @@
     {% endif %}
   {% endfor %}
 </table>
-<!-- <div>
-    <span>
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-        {% endif %}
-
-        <span>
-            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">next</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
-</div> -->
-
-
 
   </body>
 </html>

@@ -6,6 +6,7 @@ body {
   float: center;
   display: inline-block;
   margin: auto;
+  margin-top: 40px;
   display: flex;
   flex-direction: row;
   justify-content: center;
