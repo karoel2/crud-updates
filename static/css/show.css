@@ -83,12 +83,6 @@ body {
     70% { top: -0.15em; }
     100% { top: 0; }
 }
-
-
-.fa-edit .fa-trash{
-  background: #a3c6c4;
-}
-
 .styled-table {
     background: #a3c6c4;
     margin-left: auto;
@@ -100,4 +94,7 @@ body {
     font-family: sans-serif;
     min-width: 400px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+.unavaliable {
+  color: grey;
 }

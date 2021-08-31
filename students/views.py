@@ -1,7 +1,6 @@
 from django.shortcuts import render
-
+from django.core.paginator import Paginator
 from .models import User
-
 from django.contrib import messages
 
 
@@ -9,13 +8,25 @@ def home(request):
     return render(request, 'home.html', {})
 
 def show(request):
-    users = User.objects.all()
-    list = []
-    for it in users:
-        list.append(it.properties())
-    context = {
-    'user_properties': list
-    }
+    user_list = [user.properties() for user in User.objects.all()]
+    paginator = Paginator(user_list, 25) # Show 25 contacts per page.
+    page_number = request.GET.get('page')
+    if page_number != None:
+        page_obj = paginator.get_page(page_number)
+        context = {
+        'page_obj': page_obj
+        }
+        from datetime import datetime
+
+        now = datetime.now()
+
+        current_time = now.strftime("%H:%M:%S")
+        print("Current Time =", current_time)
+        print(f'number: {page_number}')
+        print(f'next {page_obj.has_next()}')
+        print(f'previous {page_obj.has_previous()}')
+    else:
+        context = {}
     return render(request, 'show.html', context)
 
 from django.views.decorators.http import require_http_methods
@@ -98,7 +109,7 @@ def restart(request):
     User.objects.all().delete()
     surnames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez']
     names = ['James', 'Mary', 'John', 'Patricia', 'Robert', 'Jennifer', 'Michael', 'Linda', 'William', 'Elizabeth', 'David', 'Barbara', 'Richard', 'Susan', 'Joseph', 'Jessica', 'Thomas', 'Sarah', 'Charles', 'Karen', 'Christopher', 'Nancy', 'Daniel', 'Lisa', 'Matthew', 'Margaret']
-    for _ in names:
+    for _ in range(400):
         name = random.choice(names)
         surname = random.choice(surnames)
         login = name[:3] + surname[:3] + str(random.randrange(999)+1)

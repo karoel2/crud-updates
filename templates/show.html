@@ -9,7 +9,7 @@
   </head>
   <body>
 
-    <div class="menu">
+  <div class="menu">
     <div class="btn_gropu">
     <script src="https://kit.fontawesome.com/e0b1527393.js" crossorigin="anonymous"></script>
 
@@ -23,7 +23,7 @@
       </button>
     </a>
 
-    <a href='../show'>
+    <a href='../show?page=1'>
       <button class="btn bounce">
         <i class="fas fa-list fa-5x">
         </i>
@@ -53,8 +53,100 @@
       </button>
     </a>
   </div>
-  </div>
+</div>
 
+
+
+<div><br><br></div>
+
+
+{% if page_obj.has_previous %}
+<a href="?page=1">
+  <button class="btn bounce">
+    <i class="fas fa-angle-double-left fa-5x">
+    </i>
+    <p class="btn_txt">
+    first page
+    </p>
+  </button>
+</a>
+<a href="?page={{page_obj.previous_page_number}}">
+  <button class="btn bounce">
+    <i class="fas fa-angle-left fa-5x">
+    </i>
+    <p class="btn_txt">
+      previous
+    </p>
+  </button>
+</a>
+{% else %}
+<!-- <a href="?page=1"> -->
+  <button class="btn bounce">
+    <i class="unavaliable fas fa-angle-double-left fa-5x">
+    </i>
+    <p class="btn_txt">
+      first page
+    </p>
+  </button>
+<!-- </a>
+<a href="?page=1"> -->
+  <button class="btn bounce">
+    <i class="unavaliable fas fa-angle-left fa-5x">
+    </i>
+    <p class="btn_txt">
+      previous
+    </p>
+  </button>
+<!-- </a> -->
+{% endif %}
+
+<button class="btn bounce">
+  <i class="fas fa-map fa-5x">
+  </i>
+  <p class="btn_txt">
+    page number: {{ page_obj.number }}
+  </p>
+</button>
+
+{% if page_obj.has_next %}
+<a href="?page={{page_obj.next_page_number}}">
+  <button class="btn bounce">
+    <i class="fas fa-angle-right fa-5x">
+    </i>
+    <p class="btn_txt">
+      next
+    </p>
+  </button>
+</a>
+<a href="?page={{page_obj.paginator.num_pages}}">
+  <button class="btn bounce">
+    <i class="fas fa-angle-double-right fa-5x">
+    </i>
+    <p class="btn_txt">
+      last page
+    </p>
+  </button>
+</a>
+{% else %}
+<!-- <a href="?page="> -->
+  <button class="btn bounce">
+    <i class="unavaliable fas fa-angle-right fa-5x">
+    </i>
+    <p class="btn_txt">
+      next
+    </p>
+  </button>
+<!-- </a>
+<a href="?page=1"> -->
+  <button class="btn bounce">
+    <i class="unavaliable fas fa-angle-double-right fa-5x">
+    </i>
+    <p class="btn_txt">
+      last page
+    </p>
+  </button>
+<!-- </a> -->
+{% endif %}
 
 <table class="styled-table">
   <tr>
@@ -64,7 +156,7 @@
     <th>Date of birth</th>
     <th>Login</th>
   </tr>
-  {% for user in user_properties %}
+  {% for user in page_obj %}
     {% if not user.5 %}
     <tr>
       {% for prop in user|slice:":5" %}
@@ -76,7 +168,23 @@
     {% endif %}
   {% endfor %}
 </table>
+<!-- <div>
+    <span>
+        {% if page_obj.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
 
+        <span>
+            Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}">next</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div> -->
 
 
 
