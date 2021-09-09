@@ -25,9 +25,11 @@ urlpatterns = [
     url(r'^home/', views.home, name='home'),
     url(r'^show/', views.show, name='show'),
     url(r'^form/', views.user_form, name='form'),
+    url(r'^login/', views.login, name='login'),
+    url(r'^register/', views.register, name='register'),
     url(r'^profile/', views.user_prolfie_list, name='profile'),
-    url(r'^profile_view/(?P<user_id>\d+)/', views.user_prolfie_view, name='null'),
-    url(r'^profile_delete/(?P<user_id>\d+)/', views.user_prolfie_delete, name='del'),
+    url(r'^profile_view/(?P<page>\d+)/(?P<student_id>\d+)/', views.user_prolfie_view, name='null'),
+    url(r'^profile_delete/(?P<page>\d+)/(?P<student_id>\d+)/', views.user_prolfie_delete, name='del'),
     url(r'^restart/', views.restart),
 
     url(r'^profile_view/', views.reditect_to_home, name='home'),

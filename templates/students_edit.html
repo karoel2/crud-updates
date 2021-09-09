@@ -157,10 +157,10 @@
         </th>
       {% endfor %}
       <th>
-        <button class="icon_btn"><a  href = '/profile_view/{{user.0}}/'><i class="fas fa-edit fa-2x"></i></a></button>
+        <button class="icon_btn"><a  href = '/profile_view/{{page_obj.number}}/{{user.0}}/'><i class="fas fa-edit fa-2x"></i></a></button>
       </th>
       <th>
-        <button class="icon_btn"><a  href = '/profile_delete/{{user.0}}/'><i class="fas fa-trash fa-2x"></i></a></button>
+        <button class="icon_btn"><a  href = '/profile_delete/{{page_obj.number}}/{{user.0}}/'><i class="fas fa-trash fa-2x"></i></a></button>
       </th>
     </tr>
     {% endif %}
