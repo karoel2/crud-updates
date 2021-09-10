@@ -56,6 +56,17 @@ def user_prolfie_list(request):#editOrDelete
     return render(request, 'students_edit.html', context)
 
 
+
+#https://crud-updates.herokuapp.com/show/?page=1
+
+#heroku makemigrations?
+#
+#
+#
+
+#WTF
+
+
 #EDIT
 # @require_http_methods(["GET", "POST"])
 def user_prolfie_view(request, page, student_id):
@@ -67,6 +78,7 @@ def user_prolfie_view(request, page, student_id):
             edit.surname = form.cleaned_data.get('surname')
             edit.dateOfBirth = form.cleaned_data.get('dateOfBirth')
             edit.login = form.cleaned_data.get('login')
+            edit.isDeleted = False
             edit.save()
             messages.success(request, 'Success!')
             return redirect(f'../../../profile/?page={page}')
