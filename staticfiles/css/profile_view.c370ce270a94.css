@@ -1,7 +1,6 @@
 body {
   background: 	#e0e7e9;
   font-size: 21px;
-
 }
 .menu {
   float: center;
@@ -85,21 +84,38 @@ body {
 }
 
 
-.fa-edit .fa-trash{
+
+.content {
+  /* margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 3px solid green;
+
+  padding: 50px 0px;
+  background: #a3c6c4; */
   background: #a3c6c4;
+  margin-left: 15%;
+  margin-right: 15%;
+  border-collapse: separate;
+  border-spacing: 45px 10px;
+  margin-top: 75px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 35px;
+
 }
-.styled-table {
-    background: #a3c6c4;
-    margin-left: auto;
-    margin-right: auto;
-    border-collapse: separate;
-    border-spacing: 45px 10px;
-    margin-top: 75px;
-    font-size: 0.9em;
-    font-family: sans-serif;
-    min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+.form_input{
+  display: inline-block;
+  border: none;
 }
-.unavaliable {
-  color: #6c7a89;
+.user_form{
+  display: inline-block;
+}
+.user_input{
+  font-size: 21px;
+}
+.centered_button {
+ margin-left: 30px;
 }

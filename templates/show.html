@@ -146,15 +146,14 @@
     <th>Login</th>
   </tr>
   {% for user in page_obj %}
-    {% if not user.5 %}
     <tr>
       {% for prop in user|slice:":5" %}
+
         <th style = "font-family:Geneva;font-size:16px;">
           {{ prop }}
         </th>
       {% endfor %}
     </tr>
-    {% endif %}
   {% endfor %}
 </table>
 

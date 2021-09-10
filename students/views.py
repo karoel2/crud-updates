@@ -16,8 +16,6 @@ def home(request):
     return render(request, 'home.html', {})
 
 def show(request):
-    xd = get_object_or_404(Student, id=1602)
-    print(xd)
     student_list = [student.properties() for student in Student.objects.all()]
     paginator = Paginator(student_list, 25) # Show 25 contacts per page.
     page_number = request.GET.get('page')
@@ -56,17 +54,6 @@ def user_prolfie_list(request):#editOrDelete
     else:
         context = {}
     return render(request, 'students_edit.html', context)
-
-
-
-#https://crud-updates.herokuapp.com/show/?page=1
-
-#heroku makemigrations?
-#
-#
-#
-
-#WTF
 
 
 #EDIT
@@ -112,7 +99,7 @@ def restart(request):
     Student.objects.all().delete()
     surnames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez']
     names = ['James', 'Mary', 'John', 'Patricia', 'Robert', 'Jennifer', 'Michael', 'Linda', 'William', 'Elizabeth', 'David', 'Barbara', 'Richard', 'Susan', 'Joseph', 'Jessica', 'Thomas', 'Sarah', 'Charles', 'Karen', 'Christopher', 'Nancy', 'Daniel', 'Lisa', 'Matthew', 'Margaret']
-    for _ in range(400):
+    for _ in range(200):
         name = random.choice(names)
         surname = random.choice(surnames)
         login = name[:3] + surname[:3] + str(random.randrange(999)+1)
