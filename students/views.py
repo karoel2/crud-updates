@@ -16,6 +16,8 @@ def home(request):
     return render(request, 'home.html', {})
 
 def show(request):
+    xd = get_object_or_404(Student, id=1602)
+    print(xd)
     student_list = [student.properties() for student in Student.objects.all()]
     paginator = Paginator(student_list, 25) # Show 25 contacts per page.
     page_number = request.GET.get('page')
@@ -69,7 +71,7 @@ def user_prolfie_list(request):#editOrDelete
 
 #EDIT
 # @require_http_methods(["GET", "POST"])
-def user_prolfie_view(request, page, student_id):
+def user_prolfie_view(request, page, student_id):#EDIT
     if request.method == 'POST':
         form = StudentForm(request.POST)
         if form.is_valid():
@@ -80,8 +82,9 @@ def user_prolfie_view(request, page, student_id):
             edit.login = form.cleaned_data.get('login')
             edit.isDeleted = False
             edit.save()
-            messages.success(request, 'Success!')
-            return redirect(f'../../../profile/?page={page}')
+            # messages.success(request, 'Success!')
+            return redirect('home')
+            # return redirect(f'../../../profile/?page={page}')
     else:
         student = get_object_or_404(Student, id=student_id)
         form = StudentForm()
