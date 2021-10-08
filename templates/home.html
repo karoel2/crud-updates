@@ -4,7 +4,8 @@
   <head>
     <meta charset="utf-8">
     <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+    {% block css %}{% endblock %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}"> -->
   </head>
 <body>
 
@@ -52,8 +53,9 @@
     </button>
   </a>
 </div>
-</div>
 
+{% block content %}
+{% endblock %}
 
   </body>
 </html>

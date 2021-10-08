@@ -6,29 +6,42 @@
 
   padding: 50px 0px;
   background: #a3c6c4; */
-  background: #a3c6c4;
-  margin-left: 15%;
-  margin-right: 15%;
+
+  /* background: #a3c6c4;
+  margin-left: auto;
+  margin-right: auto;
   border-collapse: separate;
   border-spacing: 45px 10px;
   margin-top: 75px;
   font-size: 0.9em;
   font-family: sans-serif;
+  padding: 25px;
+  min-width: 400px;
+  /max-width: 30%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+
+  background: #a3c6c4;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-collapse: separate;
+  border-spacing: 45px 10px;
+  margin-top: 40px;
+  /* font-size: 0.9em; */
+  font-size: 21px;
+  font-family: sans-serif;
   min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   padding: 35px;
+
 
 }
 .form_input{
   display: inline-block;
   border: none;
 }
-.user_form{
+.register_form{
   display: inline-block;
 }
-.user_input{
+input{
   font-size: 21px;
-}
-.centered_button {
- margin-left: 30px;
 }

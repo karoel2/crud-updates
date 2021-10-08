@@ -1,6 +1,7 @@
 body {
   background: 	#e0e7e9;
   font-size: 21px;
+
 }
 .menu {
   float: center;
@@ -11,36 +12,13 @@ body {
   flex-direction: row;
   justify-content: center;
 }
-.menu2 {
-  float: center;
-  display: inline-block;
-  margin: auto;
-  margin-top: 10px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
 .btn_txt {
   text-align: center;
-}
-.btn_txt2 {
-  text-align: right;
-  display: inline;
 }
 /* .btn_gropu {
     padding: 25px 0;
     background: #a3c6c4;
 } */
-.navbar {
-  background-color: #a3c6c4;
-  overflow: hidden;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  min-height: 50px;
-  min-height: 50px;
-  border-top: 2px solid #6c7a89;
-}
 .fas {
   color: #354649;
   background: #a3c6c4;
@@ -56,36 +34,13 @@ body {
   background: #a3c6c4;
   border: none;
 }
-.btn2 {
-  padding: 10px 20px;
-  min-width: 120px;
-  min-height: 50px;
-  max-width: 120px;
-  max-height: 50px;
-  float: left;
-  background: #a3c6c4;
-  border: none;
-  display: flex;
-}
-/* .btn3 {
-  padding: 10px 20px;
-  min-width: 120px;
-  min-height: 50px;
-  max-width: 120px;
-  max-height: 50px;
-  display: flex;
-
-  float: left;
-  background: #a3c6c4;
-  border: none;
-  clear: left;
-} */
 .icon_btn {
   padding: 0;
   border: none;
 }
+
 .bounce:hover {
-  /* display: inline-block; */
+  display: inline-block;
   position: relative;
   -moz-animation: bounce 0.5s infinite linear;
   -o-animation: bounce 0.5s infinite linear;
@@ -128,4 +83,50 @@ body {
     50% { top: -0.1em; }
     70% { top: -0.15em; }
     100% { top: 0; }
+}
+
+
+.content {
+  /* margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  border: 3px solid green;
+
+  padding: 50px 0px;
+  background: #a3c6c4; */
+
+  /* background: #a3c6c4;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: separate;
+  border-spacing: 45px 10px;
+  margin-top: 75px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  padding: 25px;
+  min-width: 400px;
+  /max-width: 30%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15); */
+
+  background: #a3c6c4;
+  margin-left: 30%;
+  margin-right: 30%;
+  border-collapse: separate;
+  border-spacing: 45px 10px;
+  margin-top: 40px;
+  font-size: 0.9em;
+  font-family: sans-serif;
+  min-width: 400px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  padding: 35px;
+}
+.form_input{
+  display: inline-block;
+  border: none;
+}
+.register_form{
+  display: inline-block;
+}
+.user_input{
+  font-size: 21px;
 }

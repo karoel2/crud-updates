@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Home</title>
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
+  </head>
+<body>
+  {% if request.user.is_authenticated %}
+    <p> Hello, {{request.user.name}}! </p>
+  {% else %}
+    <p> Who are you? <p>
+  {% endif %}
+    <div class="menu">
+      <div class="btn_gropu">
+        <script src="https://kit.fontawesome.com/e0b1527393.js" crossorigin="anonymous"></script>
+
+      <a href='..'>
+        <button class="btn bounce">
+          <i class="fas fa-home fa-5x"></i>
+          <p class="btn_txt">
+            Home
+          </p>
+        </button>
+      </a>
+
+      <a href='../show/?page=1'>
+        <button class="btn bounce">
+          <i class="fas fa-list fa-5x"></i>
+          <p class="btn_txt">
+            List
+          </p>
+        </button>
+      </a>
+
+      <a href='../profile/?page=1'>
+        <button class="btn bounce">
+          <i class="fas fa-user-cog fa-5x"></i>
+          <p class="btn_txt">
+            Edit or Delete
+            </p>
+        </button>
+      </a>
+
+      <a href='../form'>
+        <button class="btn bounce">
+          <i class="fas fa-user-plus fa-5x"></i>
+          <p class="btn_txt">
+          Create
+          </p>
+        </button>
+      </a>
+    </div>
+  </div>
+  {% block content %}
+  {% endblock %}
+
+  <div class="navbar">
+    <div class="menu2">
+      <div>
+        <script src="https://kit.fontawesome.com/e0b1527393.js" crossorigin="anonymous"></script>
+        <a href='../register'>
+          <button class="btn2 bounce">
+            <i class="fas fa-edit fa-2x side"></i>
+            <p class="btn_txt">
+              Register
+            </p>
+          </button>
+        </a>
+        <a href='.'>
+          <button class="btn2 bounce">
+            <i class="fas fa-sign-in-alt fa-2x fa-rotate-180"></i>
+            <p class="btn_txt">
+              Login
+            </p>
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

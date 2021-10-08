@@ -1,21 +1,26 @@
-<h1>reg</h1>
-<form method="POST">
-  {% csrf_token %}
-
-  <fieldset class="form_input">
-    <input class="user_input" type="text" name="username" required id="id_username" placeholder="username">
-    <input class="user_input" type="text" name="email" required id="id_email" placeholder="email">
-    <input class="user_input" type="text" name="password1" required id="id_password1" placeholder="password1">
-    <input class="user_input" type="text" name="password2" required id="id_password2" placeholder="password2">
-  </fieldset>
-  <!-- {{form.username.label}}
-  {{form.username}}
-  {{form.email.label}}
-  {{form.email}}
-  {{form.password1.label}}
-  {{form.password1}}
-  {{form.password2.label}}
-  {{form.password2}} -->
-
-  <input type="submit" name="Create User" value="submit">
-</form>
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css/register.css' %}">
+{% endblock %}
+{% block content %}
+  <div class=content>
+    <h2 style="text-align: center">Register:</h2>
+    <form method="post" class="register_form">
+      {% csrf_token %}
+      {% for field in form %}
+        <div class=user_input>
+        {{field.label}}
+        {{field}}
+        {% if field.help_txt %}
+          <small> {{field.help_txt}} </small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p> {{error}} </p>
+        {% endfor %}
+        </div>
+      {% endfor %}
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+{% endblock %}

@@ -1,22 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.core.paginator import Paginator
 from .models import Student
 from django.contrib import messages
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.forms import User as DjangoUser
-from forms import CreateUserForm
+from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.forms import UserCreationForm, User
 from django.views.decorators.http import require_http_methods
-from forms import StudentForm
+from forms import StudentForm, CreateUserForm
+from django.http import HttpResponseRedirect
 import random
 import datetime
-from django.shortcuts import get_object_or_404, redirect
-from django.http import HttpResponseRedirect
 
 def home(request):
-    return render(request, 'home.html', {})
+    return render(request, 'base.html', {})#HOME.html
 
 def show(request):
     student_list = [student.properties() for student in Student.objects.all()]
+    student_list.sort(key=id)
     paginator = Paginator(student_list, 25) # Show 25 contacts per page.
     page_number = request.GET.get('page')
     if page_number != None:
@@ -44,6 +43,7 @@ def user_form(request):
 
 def user_prolfie_list(request):#editOrDelete
     student_list = [student.properties() for student in Student.objects.all()]
+    student_list.sort(key=id)
     paginator = Paginator(student_list, 25) # Show 25 contacts per page.
     page_number = request.GET.get('page')
     if page_number != None:
@@ -115,23 +115,31 @@ def restart(request):
 def reditect_to_home(request):
     return redirect('..')
 
-def login(request):
-    context = {}
+def login_v(request):
+    logout(request)
     return render(request, 'login.html', context)
 
-def register(request):
+def logout_v(request):
+    context = {}
+    return redirect('..')
+
+def register_v(request):
     form = CreateUserForm()
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            User.objects.create(
-                username = form.cleaned_data.get('username'),
-                email = form.cleaned_data.get('email'),
-                password1 = form.cleaned_data.get('password1'),
-                password2 = form.cleaned_data.get('password2'),
-                )
+            # print("\n\nok\n\n")
+            # print(*form,sep='\n')
+            form.save()
+            # username = form.cleaned_data.get('username')
+            email = form.cleaned_data.get('email')
+            raw_password = form.cleaned_data.get('password1')
+            # print(username,email,raw_password)
+            account = authenticate(email=email, raw_password=raw_password)
+            # login(request, account)
         else:
-            print("NOT\n")
+            print("\n\nNOT\n\n")
+            print(*form,sep='\n')
 
     context = {'form': form}
     return render(request, 'register.html', context)
