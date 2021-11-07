@@ -8,11 +8,11 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/home.css' %}">
   </head>
 <body>
-  {% if request.user.is_authenticated %}
+  <!-- {% if request.user.is_authenticated %}
     <p> Hello, {{request.user.name}}! </p>
   {% else %}
     <p> Who are you? <p>
-  {% endif %}
+  {% endif %} -->
     <div class="menu">
       <div class="btn_gropu">
         <script src="https://kit.fontawesome.com/e0b1527393.js" crossorigin="anonymous"></script>
@@ -57,7 +57,7 @@
   {% block content %}
   {% endblock %}
 
-  <div class="navbar">
+  <!-- <div class="navbar">
     <div class="menu2">
       <div>
         <script src="https://kit.fontawesome.com/e0b1527393.js" crossorigin="anonymous"></script>
@@ -79,6 +79,6 @@
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
   </body>
 </html>

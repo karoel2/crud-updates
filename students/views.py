@@ -5,7 +5,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.forms import UserCreationForm, User
 from django.views.decorators.http import require_http_methods
-from forms import StudentForm, CreateUserForm
+from .forms import StudentForm, CreateUserForm
 from django.http import HttpResponseRedirect
 import random
 import datetime
@@ -56,7 +56,6 @@ def user_prolfie_list(request):#editOrDelete
     return render(request, 'students_edit.html', context)
 
 
-#EDIT
 # @require_http_methods(["GET", "POST"])
 def user_prolfie_view(request, page, student_id):#EDIT
     if request.method == 'POST':
@@ -69,7 +68,6 @@ def user_prolfie_view(request, page, student_id):#EDIT
             edit.login = form.cleaned_data.get('login')
             edit.isDeleted = False
             edit.save()
-            # messages.success(request, 'Success!')
             return redirect('home')
             # return redirect(f'../../../profile/?page={page}')
     else:
@@ -128,48 +126,28 @@ def register_v(request):
     if request.method == "POST":
         form = CreateUserForm(request.POST)
         if form.is_valid():
-            # print("\n\nok\n\n")
-            # print(*form,sep='\n')
-            form.save()
+            print("\n\nOK\n\n")
+            print(*form,sep='\n')
             # username = form.cleaned_data.get('username')
             email = form.cleaned_data.get('email')
             raw_password = form.cleaned_data.get('password1')
-            # print(username,email,raw_password)
-            account = authenticate(email=email, raw_password=raw_password)
-            # login(request, account)
+            raw_password2 = form.cleaned_data.get('password2')
+            if raw_password and raw_password2:
+                if raw_password == raw_password2:
+                    form.save()
+                    print('\n',email,raw_password, raw_password2)
+                    account = authenticate(email=email, raw_password=raw_password)
+                    print(account)
+                    if account is not None:
+                        login(request, account)
+                else:
+                    print("\n\nERROR\n\n")
+                    raise forms.ValidationError(_(u"Passwords didn't match."))
+            else:
+                print("\n\nERROR\n\n")
+                raise forms.ValidationError(_(u"Passwords can't be blank."))
         else:
             print("\n\nNOT\n\n")
             print(*form,sep='\n')
-
     context = {'form': form}
     return render(request, 'register.html', context)
-
-
-
-
-# @require_http_methods(["GET", "POST"])
-# def user_form(request):
-#     if request.method == 'POST':
-#         form = StudentForm(request.POST)
-#         print(form)
-#         if form.is_valid():
-#             print([form.cleaned_data.get('name'),
-#                                    form.cleaned_data.get('surname'),
-#                                    form.cleaned_data.get('dateOfBirth'),
-#                                    form.cleaned_data.get('login')])
-#             Student.objects.create(name=form.cleaned_data.get('name'),
-#                                    surname=form.cleaned_data.get('surname'),
-#                                    dateOfBirth=form.cleaned_data.get('dateOfBirth'),
-#                                    login=form.cleaned_data.get('login'),
-#                                    )
-#             messages.success(request, 'Success!')
-#             return HttpResponseRedirect('.')
-#         else:
-#             print('NOT')
-#     else:
-#         form = StudentForm()
-#     context = {'title': 'Form View',
-#                'form': form,
-#                'path': request.path,}
-#                # 'entries': Message.objects.all()}
-#     return render(request, 'user_form.html', context)

@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '+!%*fphhdj+$@=ta5*kl9p1ym21!f50!4^kn*vx_@xw-788(95'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['https://git.heroku.com/still-ocean-99573.git',]
 
@@ -108,6 +108,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'crud_project.wsgi.application'
 
+
+# AUTH_USER_MODEL = 'office.Account'
+#Authentication backends
+# AUTHENTICATION_BACKENDS = (
+#         'django.contrib.auth.backends.ModelBackend',
+#     )
 
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
